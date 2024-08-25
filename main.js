@@ -89,7 +89,14 @@ function checkAnswer()
   const playerInput = document.getElementById('Verse').value.trim();
   const repeat = verseArray.includes(playerInput)
   const currentWord = document.getElementById('ChallengeVerse').textContent[challengeWord];
-  const poemExists = poems.some(poem => poem.content === playerInput);
+  
+  let poemExists = false;
+  for(let poem of poems) {
+    if (poem.content.includes(playerInput)) {
+      poemExists = true;
+      break;
+    }
+  }
 
 
   if(repeat == true)
