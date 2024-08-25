@@ -2,7 +2,7 @@ import json
 import re
 
 # 讀取 JSON 檔案
-with open('rank.json', 'r', encoding='utf-8') as file:
+with open('tangtops.json', 'r', encoding='utf-8') as file:
     data = json.load(file)
 
 # 清理和重構資料
