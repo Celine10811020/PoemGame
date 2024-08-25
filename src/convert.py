@@ -1,29 +1,28 @@
 import json
+import re
 
 # 讀取 JSON 檔案
 with open('rank.json', 'r', encoding='utf-8') as file:
     data = json.load(file)
 
-# 初始化新格式的列表
-formatted_data = []
-
-# 逐個處理原始 JSON 檔案中的每一個項目
-for item in data:
-    # 將每個詩的內容合併成一個字符串
-    content = '，'.join(item['paragraphs']) + '。'
-
-    # 構建新的格式
-    new_item = {
-        "title": item.get('title', ''),
-        "author": item.get('author', ''),
-        "content": content
+# 清理和重構資料
+cleaned_data = []
+for entry in data:
+    cleaned_entry = {
+        "title": entry["title"],
+        "author": entry["author"],
+        "content": []
     }
 
-    # 添加到新的列表中
-    formatted_data.append(new_item)
+    # 移除標點符號並分隔每一句話
+    for paragraph in entry["paragraphs"]:
+        sentences = re.split(r'[，。！？；]', paragraph)
+        cleaned_entry["content"].extend([sentence for sentence in sentences if sentence])
 
-# 將新格式的數據寫入新的 JSON 檔案
-with open('output.json', 'w', encoding='utf-8') as file:
-    json.dump(formatted_data, file, ensure_ascii=False, indent=2)
+    cleaned_data.append(cleaned_entry)
 
-print("JSON 轉換完成！")
+# 將結果存回 JSON 檔案
+with open('cleaned_json_file.json', 'w', encoding='utf-8') as file:
+    json.dump(cleaned_data, file, ensure_ascii=False, indent=2)
+
+print("完成！")
