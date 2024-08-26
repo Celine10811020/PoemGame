@@ -28,8 +28,10 @@ function start()
   if(initialVerse)
   {
     let poemExists = false;
-    for(let poem of poems) {
-      if (poem.content.includes(initialVerse)) {
+    for(let poem of poems)
+    {
+      if (poem.content.includes(initialVerse))
+      {
         poemExists = true;
         break;
       }
@@ -113,8 +115,10 @@ function checkAnswer()
   const currentWord = document.getElementById('ChallengeVerse').textContent[challengeWord];
 
   let poemExists = false;
-  for(let poem of poems) {
-    if (poem.content.includes(playerInput)) {
+  for(let poem of poems)
+  {
+    if (poem.content.includes(playerInput))
+    {
       poemExists = true;
       break;
     }
@@ -158,7 +162,8 @@ function checkAnswer()
   if(challengeWord < document.getElementById('ChallengeVerse').textContent.length-1)
   {
     challengeWord++;
-  }else{
+  }else
+  {
     challengeWord = 0;
     term++;
   }
