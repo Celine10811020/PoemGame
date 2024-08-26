@@ -67,11 +67,15 @@ h1 {
 }
 
 /* 鼠標拖尾特效 */
-body {
-    cursor: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCAzMCAzMCIgZmlsbD0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxMCIgc3Ryb2tlLWxpbmVjYXRpb24tZGFzaGFyZCIgc3Ryb2tlLXdpZHRoPSI0IiBzdHJva2UtbGluZWNhcGlvbiI9IjAiIHN0cm9rZS13aWR0aD0iMTAiIHN0cm9rZS1saW5lY2F0aW9uPSJyb3VuZCIgc3Ryb2tlLWNvcG93PSJyb3VuZCIgc3Ryb2tlLWhlaWdodD0iNiIgY2hhcmFjdGVyLXJhdGlvbiI9InNxdWFyZSIvPjwvc3ZnPg==') 16 16, auto;
+.mouse-tail {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(0,0,0,0) 80%);
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    animation: mouse-tail 0.5s linear;
 }
 
-/* 鼠標拖尾效果 */
 @keyframes mouse-tail {
     0% {
         transform: scale(0.5);
@@ -81,13 +85,4 @@ body {
         transform: scale(1.5);
         opacity: 0;
     }
-}
-
-.mouse-tail {
-    position: absolute;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(0,0,0,0) 80%);
-    pointer-events: none;
-    transform: translate(-50%, -50%);
-    animation: mouse-tail 0.5s linear;
 }

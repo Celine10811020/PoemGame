@@ -24,7 +24,7 @@ function start()
 
   if(initialVerse)
   {
-    /*let poemExists = false;
+    let poemExists = false;
     for(let poem of poems) {
       if (poem.content.includes(playerInput)) {
         poemExists = true;
@@ -36,7 +36,7 @@ function start()
     {
       alert('詩詞不存在於資料庫中。');
       return;
-    }*/
+    }
 
     verseArray.push(initialVerse);
 
@@ -104,13 +104,13 @@ function checkAnswer()
   const repeat = verseArray.includes(playerInput)
   const currentWord = document.getElementById('ChallengeVerse').textContent[challengeWord];
 
-  /*let poemExists = false;
+  let poemExists = false;
   for(let poem of poems) {
     if (poem.content.includes(playerInput)) {
       poemExists = true;
       break;
     }
-  }*/
+  }
 
 
   if(repeat == true)
@@ -125,11 +125,11 @@ function checkAnswer()
     return;
   }
 
-  /*if(!poemExists)
+  if(!poemExists)
   {
     alert('詩詞不存在於資料庫中。');
     return;
-  }*/
+  }
 
   if(!playerInput.includes(currentWord))
   {
@@ -166,12 +166,12 @@ function endGame()
   alert(`時間到！遊戲結束！！\n你一共找到了 ${verseCount} 首詩句！`);
 }
 
-/*fetch('poem.json')
+fetch('poem.json')
   .then(response => response.json())
   .then(data => {
     poems = data;
   })
-  .catch(error => console.error('Error loading JSON:', error));*/
+  .catch(error => console.error('Error loading JSON:', error));
 
 document.getElementById('StartVerse').addEventListener('keypress', function(event) {
   if (event.key === 'Enter') {

@@ -15,6 +15,7 @@ document.addEventListener('mousemove', (e) => {
 
 // 背景顏色切換
 document.getElementById('endless').addEventListener('mouseover', () => {
+    document.body.style.transition = 'background 1s ease';
     document.body.style.background = 'linear-gradient(135deg, #92fe9d, #00c9ff)';
 });
 
@@ -23,6 +24,7 @@ document.getElementById('endless').addEventListener('mouseout', () => {
 });
 
 document.getElementById('timed').addEventListener('mouseover', () => {
+    document.body.style.transition = 'background 1s ease';
     document.body.style.background = 'linear-gradient(135deg, #b721ff, #21d4fd)';
 });
 
