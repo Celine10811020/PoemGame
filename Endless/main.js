@@ -26,7 +26,7 @@ function start()
   {
     let poemExists = false;
     for(let poem of poems) {
-      if (poem.content.includes(playerInput)) {
+      if (poem.content.includes(initialVerse)) {
         poemExists = true;
         break;
       }
