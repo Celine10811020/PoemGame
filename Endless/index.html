@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html lang="zh-TW">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+  <link rel="stylesheet" href="style.css">
+
+  <title>詩詞接龍挑戰遊戲（無盡版）</title>
+</head>
+
+<body>
+  <div id="Rule" class="rule">
+    <div class="ruleContent">
+      <h2>無盡版遊戲規則</h2>
+      <p>
+        1. 玩家輸入一句初始詩/詞句，開始挑戰。
+        <br>
+        2. 挑戰開始後，玩家從初始詩/詞句中的第一個字開始，逐字找到包含這些字的其他詩/詞句。
+        <br>
+        3. 每個字所對應的新詩/詞句會加入後續的挑戰詩/詞句中。
+        <br>
+        4. 之後的挑戰，系統會自動跳過當初找到該詩/詞句時使用的字。
+        <br>
+        5. 請注意，提交的詩/詞句不得與之前給出的詩/詞句重複。
+      </p>
+      <button onclick="startGame()">開始遊戲</button>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="header">
+      <h1>詩詞接龍挑戰遊戲（無盡版）</h1>
+      <button id="ShowRule" onclick="showRule()">?</button>
+    </div>
+    <div id="StartInput">
+      <p>請輸入起始詩句：</p>
+      <input type="text" id="StartVerse" placeholder="輸入詩句">
+      <button onclick="start()">開始挑戰</button>
+    </div>
+    <div id="Challenge">
+      <p>挑戰詩句：</p>
+      <p id="ChallengeVerse"></p>
+      <div id="Arrow">↑</div>
+      <input type="text" id="Verse" placeholder="輸入詩句">
+      <button onclick="checkAnswer()">提交</button>
+      <button onclick="endGame()" style="margin-left: 15px;">結束遊戲</button>
+    </div>
+    <div id="Result">
+      <p>已使用詩句：</p>
+      <ul id="VerseList"></ul>
+    </div>
+  </div>
+</body>
+
+<script src="main.js"></script>
+
+</html>
